@@ -1,0 +1,65 @@
+.page-demand-list { min-height: 100vh; background: var(--bg); padding-bottom: 140rpx; }
+
+.filter-header { background: #FFFFFF; }
+
+.status-tabs {
+  display: flex;
+  padding: 20rpx 32rpx;
+  background: #FFFFFF;
+  border-bottom: 2rpx solid var(--border-light);
+  gap: 8rpx;
+}
+
+.status-tab {
+  padding: 12rpx 28rpx;
+  border-radius: 32rpx;
+  font-size: 26rpx;
+  color: var(--text-secondary);
+  background: var(--bg);
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.status-tab.active {
+  background: var(--primary);
+  color: #FFFFFF;
+  font-weight: 700;
+}
+
+.sort-bar {
+  display: flex;
+  padding: 16rpx 32rpx;
+  background: #FFFFFF;
+  gap: 32rpx;
+  margin-bottom: 16rpx;
+}
+
+.sort-item {
+  font-size: 24rpx;
+  color: var(--text-muted);
+}
+
+.sort-item.active {
+  color: var(--primary);
+  font-weight: 700;
+}
+
+.demand-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20rpx;
+  padding-top: 16rpx;
+}
+
+.load-more { text-align: center; padding: 32rpx; font-size: 24rpx; }
+.empty-icon { font-size: 80rpx; margin-bottom: 20rpx; display: block; }
+
+.bottom-btn {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 20rpx 32rpx;
+  background: #FFFFFF;
+  box-shadow: 0 -4rpx 16rpx rgba(0,0,0,0.05);
+}

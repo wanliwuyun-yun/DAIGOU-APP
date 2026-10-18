@@ -1,0 +1,68 @@
+<view class="page-daigou-detail">
+  <view class="profile-header">
+    <image class="avatar avatar-xl" src="{{daigouInfo.avatarUrl || '/images/avatar-default.png'}}" mode="aspectFill" />
+    <text class="daigou-name">{{daigouInfo.nickName}}</text>
+    <view class="daigou-badges">
+      <text class="tag tag-accent" wx:if="{{daigouInfo.verified}}">认证达人</text>
+      <text class="tag tag-primary">{{daigouInfo.daigouInfo.regionNames.length}}个地区</text>
+    </view>
+    <text class="daigou-desc">{{daigouInfo.daigouInfo.description || '暂无简介'}}</text>
+  </view>
+
+  <view class="stats-row">
+    <view class="stat-item">
+      <text class="stat-value">{{daigouInfo.daigouInfo.orderCount || 0}}</text>
+      <text class="stat-label">成交订单</text>
+    </view>
+    <view class="stat-divider"></view>
+    <view class="stat-item">
+      <text class="stat-value">{{daigouInfo.daigouInfo.rating || '5.0'}}</text>
+      <text class="stat-label">服务评分</text>
+    </view>
+    <view class="stat-divider"></view>
+    <view class="stat-item">
+      <text class="stat-value">{{daigouInfo.daigouInfo.reviewCount || 0}}</text>
+      <text class="stat-label">好评数</text>
+    </view>
+  </view>
+
+  <!-- 可代购地区 -->
+  <view class="section">
+    <text class="section-title">可代购地区</text>
+    <view class="region-tags">
+      <text class="tag tag-primary" wx:for="{{daigouInfo.daigouInfo.regionNames}}" wx:key="*this">{{item}}</text>
+    </view>
+  </view>
+
+  <!-- 主营品类 -->
+  <view class="section">
+    <text class="section-title">主营品类</text>
+    <view class="region-tags">
+      <text class="tag" style="background:var(--bg);color:var(--text-secondary);" wx:for="{{daigouInfo.daigouInfo.categoryNames}}" wx:key="*this">{{item}}</text>
+    </view>
+  </view>
+
+  <!-- TA的商品 -->
+  <view class="section">
+    <text class="section-title">TA的可代购商品</text>
+    <view class="product-waterfall" wx:if="{{products.length > 0}}">
+      <view class="waterfall-col">
+        <product-card wx:for="{{productsLeft}}" wx:key="_id" item="{{item}}" />
+      </view>
+      <view class="waterfall-col">
+        <product-card wx:for="{{productsRight}}" wx:key="_id" item="{{item}}" />
+      </view>
+    </view>
+    <view class="empty-hint" wx:else><text class="text-muted">暂无商品</text></view>
+  </view>
+
+  <view style="height:140rpx;"></view>
+
+  <!-- 底部操作 -->
+  <view class="bottom-bar safe-bottom">
+    <button class="btn btn-ghost" style="flex:1;" bindtap="toggleFavorite">
+      {{isFavorited ? '❤️ 已收藏' : '🤍 收藏'}}
+    </button>
+    <button class="btn btn-primary" style="flex:2;" bindtap="openChat">私信联系</button>
+  </view>
+</view>

@@ -1,0 +1,11 @@
+<!-- wxml -->
+<view class="page-agreement">
+  <view class="card" style="padding:32rpx;">
+    <text class="agree-title">用户协议与隐私政策</text>
+    <view class="divider"></view>
+    <text class="agree-section-title">用户协议</text>
+    <text class="agree-text">1. 用户在使用本平台前应仔细阅读并遵守本协议。\n2. 用户需提供真实信息，不得冒充他人或发布虚假信息。\n3. 用户不得利用平台进行违法活动，包括但不限于发布违禁品代购需求。\n4. 代购供需双方应诚实守信，自行承担交易风险。\n5. 平台有权对违规用户进行封禁处理。\n6. 本协议的解释和执行适用中华人民共和国法律。</text>
+    <text class="agree-section-title">隐私政策</text>
+    <text class="agree-text">1. 我们收集的用户信息仅用于平台服务，包括微信授权信息、手机号等。\n2. 用户信息不会出售或分享给第三方。\n3. 聊天记录仅对沟通双方可见，平台不主动监控。\n4. 用户有权要求删除个人信息，请联系客服处理。\n5. 我们会采取合理措施保护用户信息安全。</text>
+  </view>
+</view>

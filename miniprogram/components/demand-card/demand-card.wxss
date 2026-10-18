@@ -1,0 +1,74 @@
+.demand-card {
+  padding: 24rpx;
+}
+
+.demand-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16rpx;
+}
+
+.demand-user {
+  display: flex;
+  align-items: center;
+  gap: 12rpx;
+}
+
+.demand-nick {
+  font-size: 24rpx;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.demand-body {
+  margin-bottom: 16rpx;
+}
+
+.demand-title {
+  font-size: 30rpx;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 16rpx;
+}
+
+.demand-images {
+  display: flex;
+  gap: 12rpx;
+  margin-bottom: 16rpx;
+}
+
+.demand-img {
+  width: 140rpx;
+  height: 140rpx;
+  border-radius: var(--radius-sm);
+  background: var(--border-light);
+}
+
+.demand-tags {
+  display: flex;
+  gap: 12rpx;
+}
+
+.demand-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 16rpx;
+  border-top: 2rpx solid var(--border-light);
+}
+
+.demand-budget {
+  display: flex;
+  align-items: baseline;
+  gap: 8rpx;
+}
+
+.budget-label {
+  font-size: 24rpx;
+  color: var(--text-muted);
+}
+
+.demand-time {
+  font-size: 22rpx;
+}

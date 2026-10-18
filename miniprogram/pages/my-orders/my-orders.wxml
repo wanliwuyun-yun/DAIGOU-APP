@@ -1,0 +1,42 @@
+<view class="page-my-orders">
+  <view class="tab-bar">
+    <text class="tab-item {{currentTab === 'all' ? 'active' : ''}}" data-tab="all" bindtap="switchTab">全部</text>
+    <text class="tab-item {{currentTab === 'intention' ? 'active' : ''}}" data-tab="intention" bindtap="switchTab">意向</text>
+    <text class="tab-item {{currentTab === 'purchasing' ? 'active' : ''}}" data-tab="purchasing" bindtap="switchTab">代购中</text>
+    <text class="tab-item {{currentTab === 'shipping' ? 'active' : ''}}" data-tab="shipping" bindtap="switchTab">运输中</text>
+    <text class="tab-item {{currentTab === 'completed' ? 'active' : ''}}" data-tab="completed" bindtap="switchTab">已完成</text>
+  </view>
+
+  <view class="order-list">
+    <view class="order-card card" wx:for="{{orderList}}" wx:key="_id" data-id="{{item._id}}" bindtap="goDetail">
+      <view class="order-header">
+        <text class="order-id">订单号：{{item.orderId}}</text>
+        <text class="order-status" style="color:{{item.statusColor}};">{{item.statusText}}</text>
+      </view>
+      <view class="order-body">
+        <image class="order-img" src="{{item.productImages[0] || '/images/placeholder.png'}}" mode="aspectFill" />
+        <view class="order-info">
+          <text class="order-name text-ellipsis">{{item.productName}}</text>
+          <text class="order-region text-muted">{{item.regionName}}</text>
+          <view class="order-bottom">
+            <text class="order-price price" style="font-size:28rpx;">¥{{item.totalAmount || item.budget || 0}}</text>
+            <text class="order-role tag {{item.myRole === 'daigou' ? 'tag-accent' : 'tag-primary'}}" style="font-size:20rpx;">{{item.myRole === 'daigou' ? '我代购' : '我购买'}}</text>
+          </view>
+        </view>
+      </view>
+      <view class="order-footer">
+        <text class="text-muted" style="font-size:22rpx;">{{item.createdAtStr}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="empty-state" wx:if="{{orderList.length === 0 && !loading}}">
+    <text class="empty-icon">📦</text>
+    <text class="empty-title">暂无订单</text>
+  </view>
+
+  <view class="load-more" wx:if="{{orderList.length > 0}}">
+    <text class="text-muted" wx:if="{{loading}}">加载中...</text>
+    <text class="text-muted" wx:elif="{{noMore}}">- 没有更多了 -</text>
+  </view>
+</view>

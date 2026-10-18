@@ -1,0 +1,11 @@
+<!-- wxml -->
+<view class="page-favorites">
+  <view class="fav-list" wx:if="{{list.length > 0}}">
+    <daigou-card wx:for="{{list}}" wx:key="_id" item="{{item.daigouInfo}}" />
+  </view>
+  <view class="empty-state" wx:else>
+    <text class="empty-icon">❤️</text>
+    <text class="empty-title">暂无收藏</text>
+    <text class="empty-desc">去发现优秀的代购达人吧</text>
+  </view>
+</view>

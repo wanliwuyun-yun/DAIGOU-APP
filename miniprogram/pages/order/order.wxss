@@ -1,0 +1,27 @@
+.page-order { min-height: 100vh; background: var(--bg); }
+
+.tab-bar {
+  display: flex; padding: 20rpx 24rpx; background: #FFFFFF;
+  border-bottom: 2rpx solid var(--border-light); gap: 8rpx;
+  overflow-x: auto; white-space: nowrap;
+}
+.tab-item {
+  padding: 12rpx 24rpx; border-radius: 32rpx; font-size: 26rpx;
+  color: var(--text-secondary); background: var(--bg); flex-shrink: 0;
+}
+.tab-item.active { background: var(--primary); color: #FFFFFF; font-weight: 700; }
+
+.order-list { padding: 20rpx 32rpx; display: flex; flex-direction: column; gap: 20rpx; }
+
+.order-card { padding: 24rpx; }
+.order-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16rpx; }
+.order-id { font-size: 24rpx; color: var(--text-muted); }
+.order-status { font-size: 26rpx; font-weight: 700; }
+
+.order-body { display: flex; gap: 20rpx; }
+.order-img { width: 140rpx; height: 140rpx; border-radius: var(--radius-sm); background: var(--border-light); flex-shrink: 0; }
+.order-info { flex: 1; min-width: 0; display: flex; flex-direction: column; justify-content: space-between; }
+.order-name { font-size: 28rpx; font-weight: 600; }
+.order-region { font-size: 22rpx; }
+.order-footer { margin-top: 12rpx; padding-top: 12rpx; border-top: 2rpx solid var(--border-light); text-align: right; }
+.empty-icon { font-size: 80rpx; margin-bottom: 20rpx; display: block; }

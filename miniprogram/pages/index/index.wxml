@@ -1,0 +1,183 @@
+<!-- 首页 -->
+<view class="page-index">
+  <!-- 自定义导航栏 -->
+  <view class="nav-bar" style="padding-top:{{statusBarHeight}}px;">
+    <view class="nav-inner">
+      <view class="nav-title">环球代购</view>
+      <view class="search-bar" bindtap="goSearch">
+        <text class="search-icon">🔍</text>
+        <text class="search-placeholder">搜索商品、地区、代购达人</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 占位 -->
+  <view style="height:{{navBarHeight}}px;"></view>
+
+  <!-- 轮播 Banner -->
+  <swiper class="banner-swiper" autoplay circular indicator-dots indicator-color="rgba(255,255,255,0.4)" indicator-active-color="#FFFFFF" interval="4000" duration="500">
+    <swiper-item wx:for="{{banners}}" wx:key="id">
+      <view class="banner-item" style="background:linear-gradient(135deg, {{item.color}}, {{item.color}}DD);">
+        <view class="banner-content">
+          <text class="banner-title">{{item.title}}</text>
+          <text class="banner-desc">{{item.desc}}</text>
+          <view class="banner-btn" bindtap="onBannerTap" data-banner="{{item}}">
+            <text>了解详情</text>
+          </view>
+        </view>
+        <view class="banner-deco">
+          <view class="deco-circle c1"></view>
+          <view class="deco-circle c2"></view>
+          <view class="deco-circle c3"></view>
+        </view>
+      </view>
+    </swiper-item>
+  </swiper>
+
+  <!-- 地区分类导航 -->
+  <view class="section">
+    <view class="section-header">
+      <text class="section-title">代购地区</text>
+      <text class="section-more" bindtap="goCategory">全部地区 ›</text>
+    </view>
+    <scroll-view class="region-scroll" scroll-x enhanced show-scrollbar="{{false}}">
+      <view class="region-grid">
+        <view class="region-grid-item" wx:for="{{regions}}" wx:key="id" data-group="{{item}}" bindtap="onRegionTap">
+          <view class="region-icon-wrap" style="background:{{item.color}}15;">
+            <text class="region-emoji">{{item.icon}}</text>
+          </view>
+          <text class="region-text">{{item.name}}</text>
+          <text class="region-count">{{item.children.length}}个地区</text>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+
+  <!-- 热门品类 -->
+  <view class="section">
+    <view class="section-header">
+      <text class="section-title">热门品类</text>
+    </view>
+    <view class="category-grid">
+      <view class="category-item" wx:for="{{categories}}" wx:key="id" data-id="{{item.id}}" bindtap="onCategoryTap">
+        <text class="category-icon">{{item.icon}}</text>
+        <text class="category-name">{{item.name}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 推荐代购达人 -->
+  <view class="section" wx:if="{{daigouList.length > 0}}">
+    <view class="section-header">
+      <text class="section-title">推荐代购达人</text>
+      <text class="section-more" bindtap="goDaigouList">更多 ›</text>
+    </view>
+    <scroll-view class="daigou-scroll" scroll-x enhanced show-scrollbar="{{false}}">
+      <view class="daigou-scroll-inner">
+        <view class="daigou-mini-card card" wx:for="{{daigouList}}" wx:key="_openid" data-id="{{item._openid}}" bindtap="goDaigouDetail">
+          <image class="daigou-mini-avatar" src="{{item.avatarUrl || '/images/avatar-default.png'}}" mode="aspectFill" />
+          <text class="daigou-mini-name text-ellipsis">{{item.nickName}}</text>
+          <text class="daigou-mini-region text-ellipsis">{{item.daigouInfo.regionNames[0] || '全球'}}</text>
+          <view class="daigou-mini-rating">
+            <text class="text-accent">★</text>
+            <text class="text-accent" style="font-size:22rpx;font-weight:600;">{{item.daigouInfo.rating || '5.0'}}</text>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+
+  <!-- 最新代购需求 -->
+  <view class="section">
+    <view class="section-header">
+      <text class="section-title">最新代购需求</text>
+      <text class="section-more" bindtap="goDemandList">更多 ›</text>
+    </view>
+    <view class="demand-mini-list">
+      <view class="demand-mini-item" wx:for="{{demandList}}" wx:key="_id" data-id="{{item._id}}" bindtap="goDemandDetail">
+        <view class="demand-mini-left">
+          <text class="demand-mini-title text-ellipsis">{{item.productName}}</text>
+          <view class="demand-mini-meta">
+            <text class="tag tag-primary" style="font-size:20rpx;height:34rpx;">{{item.regionName}}</text>
+            <text class="demand-mini-time text-muted">{{item.timeAgo}}</text>
+          </view>
+        </view>
+        <view class="demand-mini-right">
+          <text class="price" style="font-size:28rpx;">¥{{item.budget || '面议'}}</text>
+        </view>
+      </view>
+      <view class="empty-hint" wx:if="{{demandList.length === 0 && !loading}}">
+        <text class="text-muted">暂无需求，快来发布第一个吧</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 热门可代购商品 -->
+  <view class="section">
+    <view class="section-header">
+      <text class="section-title">热门可代购商品</text>
+      <text class="section-more" bindtap="goProductList">更多 ›</text>
+    </view>
+    <view class="product-waterfall">
+      <view class="waterfall-col">
+        <product-card wx:for="{{productsLeft}}" wx:key="_id" item="{{item}}" />
+      </view>
+      <view class="waterfall-col">
+        <product-card wx:for="{{productsRight}}" wx:key="_id" item="{{item}}" />
+      </view>
+    </view>
+    <view class="empty-hint" wx:if="{{productsLeft.length === 0 && productsRight.length === 0 && !loading}}">
+      <text class="text-muted">暂无商品</text>
+    </view>
+    <view class="load-more" wx:if="{{productsLeft.length > 0 || productsRight.length > 0}}">
+      <text class="text-muted" wx:if="{{!noMore}}">加载更多...</text>
+      <text class="text-muted" wx:else>- 没有更多了 -</text>
+    </view>
+  </view>
+
+  <view style="height:120rpx;"></view>
+
+  <!-- 发布浮动按钮（买家发需求 / 代购发商品） -->
+  <view class="fab" bindtap="onFabTap">
+    <text class="fab-icon">+</text>
+    <text class="fab-text">发布</text>
+  </view>
+
+  <!-- 发布选择弹出 -->
+  <view class="action-sheet-mask {{showPublishSheet ? 'show' : ''}}" bindtap="closePublishSheet"></view>
+  <view class="action-sheet {{showPublishSheet ? 'show' : ''}}">
+    <view class="sheet-header">
+      <text class="sheet-title">选择发布类型</text>
+      <text class="sheet-close" bindtap="closePublishSheet">✕</text>
+    </view>
+    <view class="sheet-body">
+      <view class="sheet-option" bindtap="publishDemand">
+        <view class="sheet-option-icon" style="background:rgba(232,115,74,0.1);">
+          <text>📋</text>
+        </view>
+        <view class="sheet-option-info">
+          <text class="sheet-option-title">发布代购需求</text>
+          <text class="sheet-option-desc">有想买的东西？发布需求等代购接单</text>
+        </view>
+      </view>
+      <view class="sheet-option" bindtap="publishProduct" wx:if="{{isDaigou}}">
+        <view class="sheet-option-icon" style="background:rgba(201,169,110,0.1);">
+          <text>🛍️</text>
+        </view>
+        <view class="sheet-option-info">
+          <text class="sheet-option-title">发布可代购商品</text>
+          <text class="sheet-option-desc">上架你的代购商品，吸引买家</text>
+        </view>
+      </view>
+      <view class="sheet-option" bindtap="goApply" wx:if="{{!isDaigou && !isBuyerOnly}}">
+        <view class="sheet-option-icon" style="background:rgba(52,199,89,0.1);">
+          <text>⭐</text>
+        </view>
+        <view class="sheet-option-info">
+          <text class="sheet-option-title">申请成为代购</text>
+          <text class="sheet-option-desc">开通代购身份，发布商品接单赚钱</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

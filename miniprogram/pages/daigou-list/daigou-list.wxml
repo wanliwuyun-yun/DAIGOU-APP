@@ -1,0 +1,19 @@
+<view class="page-daigou-list">
+  <region-nav activeId="{{currentRegion}}" bind:change="onRegionChange" />
+  <view class="sort-bar">
+    <text class="sort-item {{sort === 'default' ? 'active' : ''}}" data-sort="default" bindtap="onSort">综合推荐</text>
+    <text class="sort-item {{sort === 'orderCount' ? 'active' : ''}}" data-sort="orderCount" bindtap="onSort">成交最多</text>
+    <text class="sort-item {{sort === 'rating' ? 'active' : ''}}" data-sort="rating" bindtap="onSort">评分最高</text>
+  </view>
+  <view class="daigou-list container">
+    <daigou-card wx:for="{{list}}" wx:key="_openid" item="{{item}}" />
+  </view>
+  <view class="empty-state" wx:if="{{list.length === 0 && !loading}}">
+    <text class="empty-icon">👤</text>
+    <text class="empty-title">暂无代购达人</text>
+  </view>
+  <view class="load-more" wx:if="{{list.length > 0}}">
+    <text class="text-muted" wx:if="{{loading}}">加载中...</text>
+    <text class="text-muted" wx:elif="{{noMore}}">- 没有更多了 -</text>
+  </view>
+</view>

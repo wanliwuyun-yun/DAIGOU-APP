@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "daigou-card": "/components/daigou-card/daigou-card",
+    "region-nav": "/components/region-nav/region-nav"
+  },
+  "navigationBarTitleText": "代购达人",
+  "enablePullDownRefresh": true
+}

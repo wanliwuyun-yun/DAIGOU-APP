@@ -1,0 +1,30 @@
+<!-- 需求卡片组件 -->
+<view class="demand-card card" bindtap="onTap">
+  <view class="demand-header">
+    <view class="demand-user">
+      <image class="avatar avatar-sm" src="{{item.userInfo.avatarUrl || '/images/avatar-default.png'}}" mode="aspectFill" />
+      <text class="demand-nick">{{item.userInfo.nickName || '匿名用户'}}</text>
+    </view>
+    <text class="tag" style="background:{{statusInfo.color}}20;color:{{statusInfo.color}}">{{statusInfo.name}}</text>
+  </view>
+  <view class="demand-body">
+    <text class="demand-title text-ellipsis">{{item.productName}}</text>
+    <view class="demand-images" wx:if="{{item.images && item.images.length > 0}}">
+      <image wx:for="{{item.images}}" wx:key="*this" wx:if="{{index < 3}}" class="demand-img" src="{{item}}" mode="aspectFill" />
+    </view>
+    <view class="demand-tags">
+      <text class="tag tag-primary">{{item.regionName}}</text>
+      <text class="tag" style="background:var(--bg);color:var(--text-secondary);">x{{item.quantity || 1}}</text>
+    </view>
+  </view>
+  <view class="demand-footer">
+    <view class="demand-budget">
+      <text class="budget-label">预算</text>
+      <text class="price price-small">
+        <text class="price-symbol">¥</text>
+        <text class="price-value">{{item.budget || '面议'}}</text>
+      </text>
+    </view>
+    <text class="demand-time text-muted">{{item.timeAgo}}</text>
+  </view>
+</view>

@@ -1,0 +1,4 @@
+{
+  "usingComponents": { "product-card": "/components/product-card/product-card" },
+  "navigationBarTitleText": "代购达人"
+}

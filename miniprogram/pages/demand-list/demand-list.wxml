@@ -1,0 +1,43 @@
+<!-- 需求列表页 -->
+<view class="page-demand-list">
+  <!-- 顶部筛选 -->
+  <view class="filter-header">
+    <region-nav activeId="{{currentRegion}}" bind:change="onRegionChange" />
+  </view>
+
+  <!-- 状态筛选 -->
+  <view class="status-tabs">
+    <text class="status-tab {{currentStatus === 'all' ? 'active' : ''}}" data-status="all" bindtap="onStatusChange">全部</text>
+    <text class="status-tab {{currentStatus === 'waiting' ? 'active' : ''}}" data-status="waiting" bindtap="onStatusChange">待接单</text>
+    <text class="status-tab {{currentStatus === 'accepted' ? 'active' : ''}}" data-status="accepted" bindtap="onStatusChange">进行中</text>
+    <text class="status-tab {{currentStatus === 'completed' ? 'active' : ''}}" data-status="completed" bindtap="onStatusChange">已完成</text>
+  </view>
+
+  <!-- 排序 -->
+  <view class="sort-bar">
+    <text class="sort-item {{sort === 'newest' ? 'active' : ''}}" data-sort="newest" bindtap="onSortChange">最新</text>
+    <text class="sort-item {{sort === 'hot' ? 'active' : ''}}" data-sort="hot" bindtap="onSortChange">最热</text>
+    <text class="sort-item {{sort === 'budgetHigh' ? 'active' : ''}}" data-sort="budgetHigh" bindtap="onSortChange">预算高</text>
+  </view>
+
+  <!-- 需求列表 -->
+  <view class="demand-list container">
+    <demand-card wx:for="{{demandList}}" wx:key="_id" item="{{item}}" />
+  </view>
+
+  <view class="empty-state" wx:if="{{demandList.length === 0 && !loading}}">
+    <text class="empty-icon">📋</text>
+    <text class="empty-title">暂无代购需求</text>
+    <text class="empty-desc" wx:if="{{!app.isDaigou()}}">发布你的代购需求，等代购达人来接单</text>
+  </view>
+
+  <view class="load-more" wx:if="{{demandList.length > 0}}">
+    <text class="text-muted" wx:if="{{loading}}">加载中...</text>
+    <text class="text-muted" wx:elif="{{noMore}}">- 没有更多了 -</text>
+  </view>
+
+  <!-- 发布需求按钮 -->
+  <view class="bottom-btn safe-bottom" wx:if="{{!isDaigouOnly}}">
+    <button class="btn btn-primary btn-block btn-lg" bindtap="publishDemand">发布代购需求</button>
+  </view>
+</view>

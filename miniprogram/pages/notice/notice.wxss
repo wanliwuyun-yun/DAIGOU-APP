@@ -1,0 +1,7 @@
+/* pages/notice/notice.wxss *//* wxss */
+.page-notice { min-height: 100vh; background: var(--bg); padding: 24rpx 32rpx; }
+.notice-title { display: block; font-size: 34rpx; font-weight: 800; margin-bottom: 16rpx; }
+.notice-section-title { display: block; font-size: 28rpx; font-weight: 700; color: var(--text-primary); margin-top: 24rpx; margin-bottom: 12rpx; }
+.notice-text { display: block; font-size: 26rpx; color: var(--text-secondary); line-height: 1.8; }
+.prohibited-list { display: flex; flex-direction: column; gap: 8rpx; margin-top: 8rpx; }
+.prohibited-item { font-size: 26rpx; color: var(--danger); }

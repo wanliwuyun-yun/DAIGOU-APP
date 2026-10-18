@@ -1,0 +1,42 @@
+.region-nav {
+  width: 100%;
+  white-space: nowrap;
+  background: #FFFFFF;
+  border-bottom: 2rpx solid var(--border-light);
+}
+
+.region-nav-inner {
+  display: inline-flex;
+  padding: 20rpx 24rpx;
+  gap: 12rpx;
+}
+
+.region-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8rpx;
+  padding: 14rpx 24rpx;
+  border-radius: 40rpx;
+  background: var(--bg);
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
+.region-item.active {
+  background: var(--primary);
+  color: #FFFFFF;
+}
+
+.region-item.active .region-name {
+  color: #FFFFFF;
+}
+
+.region-icon {
+  font-size: 28rpx;
+}
+
+.region-name {
+  font-size: 24rpx;
+  color: var(--text-secondary);
+  font-weight: 500;
+}

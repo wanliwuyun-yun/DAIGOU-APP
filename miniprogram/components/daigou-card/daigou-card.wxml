@@ -1,0 +1,36 @@
+<!-- 代购达人卡片 -->
+<view class="daigou-card card" bindtap="onTap">
+  <view class="daigou-main">
+    <view class="daigou-avatar-wrap">
+      <image class="avatar avatar-lg" src="{{item.avatarUrl || '/images/avatar-default.png'}}" mode="aspectFill" />
+      <view class="daigou-badge" wx:if="{{item.verified}}">✓</view>
+    </view>
+    <view class="daigou-info">
+      <view class="daigou-name-row">
+        <text class="daigou-name">{{item.nickName}}</text>
+        <text class="tag tag-accent" wx:if="{{item.verified}}">认证</text>
+      </view>
+      <text class="daigou-desc text-ellipsis">{{item.daigouInfo.description || '专业代购，值得信赖'}}</text>
+      <view class="daigou-regions">
+        <text class="tag tag-primary" wx:for="{{item.daigouInfo.regionNames}}" wx:key="*this" wx:if="{{index < 3}}">{{item}}</text>
+        <text class="tag" style="background:var(--bg);color:var(--text-muted);" wx:if="{{item.daigouInfo.regionNames.length > 3}}">+{{item.daigouInfo.regionNames.length - 3}}</text>
+      </view>
+    </view>
+  </view>
+  <view class="daigou-stats">
+    <view class="stat-item">
+      <text class="stat-value">{{item.daigouInfo.orderCount || 0}}</text>
+      <text class="stat-label">成交</text>
+    </view>
+    <view class="stat-divider"></view>
+    <view class="stat-item">
+      <text class="stat-value">{{item.daigouInfo.rating || '5.0'}}</text>
+      <text class="stat-label">评分</text>
+    </view>
+    <view class="stat-divider"></view>
+    <view class="stat-item">
+      <text class="stat-value">{{item.daigouInfo.reviewCount || 0}}</text>
+      <text class="stat-label">评价</text>
+    </view>
+  </view>
+</view>

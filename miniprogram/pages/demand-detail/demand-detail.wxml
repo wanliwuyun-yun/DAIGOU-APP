@@ -1,0 +1,64 @@
+<view class="page-demand-detail">
+  <view class="detail-card card">
+    <view class="demand-header">
+      <text class="tag" style="background:{{statusInfo.color}}20;color:{{statusInfo.color}};">{{statusInfo.name}}</text>
+      <text class="text-muted" style="font-size:22rpx;">{{timeAgo}}</text>
+    </view>
+    <text class="demand-title">{{demand.productName}}</text>
+
+    <!-- 图片 -->
+    <view class="demand-images" wx:if="{{demand.images && demand.images.length > 0}}">
+      <image wx:for="{{demand.images}}" wx:key="*this" class="demand-img" src="{{item}}" mode="aspectFill" bindtap="previewImage" data-src="{{item}}" />
+    </view>
+
+    <view class="demand-link" wx:if="{{demand.productLink}}">
+      <text class="text-muted" style="font-size:24rpx;">商品链接：{{demand.productLink}}</text>
+    </view>
+
+    <view class="info-grid">
+      <view class="info-cell">
+        <text class="info-label">代购地区</text>
+        <text class="info-value text-primary">{{demand.regionName}}</text>
+      </view>
+      <view class="info-cell">
+        <text class="info-label">商品分类</text>
+        <text class="info-value">{{demand.categoryName}}</text>
+      </view>
+      <view class="info-cell">
+        <text class="info-label">预算</text>
+        <text class="info-value price" style="font-size:30rpx;">¥{{demand.budget || '面议'}}</text>
+      </view>
+      <view class="info-cell">
+        <text class="info-label">数量</text>
+        <text class="info-value">x{{demand.quantity || 1}}</text>
+      </view>
+      <view class="info-cell" wx:if="{{demand.expectTime}}">
+        <text class="info-label">期望到货</text>
+        <text class="info-value">{{demand.expectTime}}</text>
+      </view>
+      <view class="info-cell">
+        <text class="info-label">拼单</text>
+        <text class="info-value">{{demand.allowGroupBuy ? '接受' : '不接受'}}</text>
+      </view>
+    </view>
+
+    <view class="demand-note" wx:if="{{demand.note}}">
+      <text class="note-label">备注要求</text>
+      <text class="note-text">{{demand.note}}</text>
+    </view>
+  </view>
+
+  <!-- 发布者信息 -->
+  <view class="user-row card" wx:if="{{!isOwner}}">
+    <image class="avatar avatar-sm" src="{{demand.userInfo.avatarUrl || '/images/avatar-default.png'}}" mode="aspectFill" />
+    <text class="user-name">{{demand.userInfo.nickName || '匿名用户'}}</text>
+  </view>
+
+  <view style="height:140rpx;"></view>
+
+  <!-- 底部操作 -->
+  <view class="bottom-bar safe-bottom" wx:if="{{!isOwner}}">
+    <button class="btn btn-primary btn-block btn-lg" bindtap="acceptDemand" wx:if="{{isDaigou && demand.status === 'waiting'}}">接单代购</button>
+    <button class="btn btn-primary btn-block btn-lg" bindtap="openChat">私信沟通</button>
+  </view>
+</view>

@@ -1,0 +1,13 @@
+/* wxss */
+.page-my-products { min-height: 100vh; background: var(--bg); }
+.tab-bar { display: flex; padding: 20rpx 32rpx; background: #FFFFFF; border-bottom: 2rpx solid var(--border-light); gap: 12rpx; }
+.tab-item { padding: 12rpx 24rpx; border-radius: 32rpx; font-size: 26rpx; color: var(--text-secondary); background: var(--bg); }
+.tab-item.active { background: var(--primary); color: #FFF; font-weight: 700; }
+.product-list { display: flex; flex-direction: column; gap: 16rpx; padding-top: 16rpx; }
+.my-product-card { display: flex; align-items: center; gap: 20rpx; padding: 20rpx; }
+.my-product-img { width: 120rpx; height: 120rpx; border-radius: var(--radius-sm); background: var(--border-light); flex-shrink: 0; }
+.my-product-info { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 6rpx; }
+.my-product-name { font-size: 26rpx; font-weight: 600; }
+.my-product-actions { display: flex; flex-direction: column; gap: 8rpx; flex-shrink: 0; }
+.action-btn { font-size: 24rpx; color: var(--primary); font-weight: 600; padding: 4rpx 16rpx; }
+.empty-icon { font-size: 80rpx; margin-bottom: 20rpx; display: block; }

@@ -1,0 +1,13 @@
+/* wxss */
+.page-review { min-height: 100vh; background: var(--bg); padding: 24rpx 32rpx; }
+.review-title { display: block; font-size: 30rpx; font-weight: 700; margin-bottom: 24rpx; }
+.star-row { display: flex; gap: 16rpx; margin-bottom: 24rpx; }
+.star { font-size: 48rpx; color: var(--border); transition: color 0.2s; }
+.star.active { color: var(--accent); }
+.review-textarea { width: 100%; min-height: 160rpx; background: var(--bg); border-radius: var(--radius); padding: 20rpx; font-size: 28rpx; line-height: 1.6; }
+.review-list { display: flex; flex-direction: column; gap: 16rpx; }
+.review-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12rpx; }
+.review-name { font-size: 28rpx; font-weight: 600; }
+.review-stars { font-size: 24rpx; letter-spacing: 4rpx; }
+.review-content-text { font-size: 28rpx; color: var(--text-secondary); line-height: 1.6; display: block; margin-bottom: 8rpx; }
+.review-time { font-size: 22rpx; }

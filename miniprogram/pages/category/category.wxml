@@ -1,0 +1,66 @@
+<!-- 地区分类页 -->
+<view class="page-category">
+  <!-- 搜索栏 -->
+  <view class="search-bar-wrap">
+    <view class="search-bar">
+      <text class="search-icon">🔍</text>
+      <input class="search-input" placeholder="搜索商品、地区、代购达人" placeholder-class="placeholder" bindinput="onSearch" bindconfirm="doSearch" value="{{keyword}}" />
+      <text class="search-clear" wx:if="{{keyword}}" bindtap="clearSearch">✕</text>
+    </view>
+  </view>
+
+  <!-- 搜索结果模式 -->
+  <view wx:if="{{mode === 'search' && searched}}" class="search-results">
+    <view class="search-tabs">
+      <text class="search-tab {{searchTab === 'product' ? 'active' : ''}}" data-tab="product" bindtap="switchSearchTab">商品</text>
+      <text class="search-tab {{searchTab === 'demand' ? 'active' : ''}}" data-tab="demand" bindtap="switchSearchTab">需求</text>
+      <text class="search-tab {{searchTab === 'daigou' ? 'active' : ''}}" data-tab="daigou" bindtap="switchSearchTab">代购</text>
+    </view>
+
+    <!-- 搜索商品 -->
+    <view wx:if="{{searchTab === 'product'}}" class="search-list">
+      <product-card wx:for="{{searchResults}}" wx:key="_id" item="{{item}}" />
+      <view class="empty-state" wx:if="{{searchResults.length === 0}}">
+        <text class="empty-title">未找到相关商品</text>
+      </view>
+    </view>
+
+    <!-- 搜索需求 -->
+    <view wx:if="{{searchTab === 'demand'}}" class="search-list">
+      <demand-card wx:for="{{searchResults}}" wx:key="_id" item="{{item}}" />
+      <view class="empty-state" wx:if="{{searchResults.length === 0}}">
+        <text class="empty-title">未找到相关需求</text>
+      </view>
+    </view>
+
+    <!-- 搜索代购 -->
+    <view wx:if="{{searchTab === 'daigou'}}" class="search-list">
+      <daigou-card wx:for="{{searchResults}}" wx:key="_openid" item="{{item}}" />
+      <view class="empty-state" wx:if="{{searchResults.length === 0}}">
+        <text class="empty-title">未找到相关代购</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 地区分类模式 -->
+  <view wx:else>
+    <!-- 地区分组列表 -->
+    <view class="region-section" wx:for="{{regions}}" wx:key="id" id="region-{{item.id}}">
+      <view class="region-section-header" style="border-left:6rpx solid {{item.color}};">
+        <text class="region-section-icon">{{item.icon}}</text>
+        <text class="region-section-name">{{item.name}}</text>
+        <text class="region-section-count">{{item.children.length}}个地区</text>
+      </view>
+      <view class="region-list">
+        <view class="region-item card" wx:for="{{item.children}}" wx:for-item="region" wx:key="id" data-region="{{region}}" data-group="{{item}}" bindtap="onRegionTap">
+          <text class="region-flag">{{region.flag}}</text>
+          <view class="region-info">
+            <text class="region-name">{{region.name}}</text>
+            <text class="region-stats">可代购商品 {{region.productCount || 0}} · 代购达人 {{region.daigouCount || 0}}</text>
+          </view>
+          <text class="region-arrow">›</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

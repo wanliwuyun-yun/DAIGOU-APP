@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "demand-card": "/components/demand-card/demand-card",
+    "region-nav": "/components/region-nav/region-nav"
+  },
+  "navigationBarTitleText": "代购需求",
+  "enablePullDownRefresh": true
+}

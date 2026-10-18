@@ -1,0 +1,35 @@
+.page-product-detail { min-height: 100vh; background: var(--bg); padding-bottom: 140rpx; }
+
+.img-swiper { width: 100%; height: 750rpx; }
+.swiper-img { width: 100%; height: 100%; }
+
+.detail-main { background: #FFFFFF; margin-top: -32rpx; border-radius: 32rpx 32rpx 0 0; position: relative; z-index: 10; padding: 32rpx; }
+
+.price-row { display: flex; align-items: baseline; gap: 12rpx; margin-bottom: 16rpx; }
+.service-fee { font-size: 26rpx; color: var(--text-muted); }
+.stock-tag { margin-left: auto; }
+
+.product-name { display: block; font-size: 34rpx; font-weight: 700; color: var(--text-primary); line-height: 1.5; margin-bottom: 16rpx; }
+
+.tag-row { display: flex; gap: 12rpx; flex-wrap: wrap; }
+
+.daigou-row {
+  display: flex; align-items: center; gap: 16rpx; padding: 8rpx 0;
+}
+.daigou-name { flex: 1; font-size: 28rpx; font-weight: 600; }
+.daigou-go { font-size: 24rpx; color: var(--primary); }
+
+.info-list { display: flex; flex-direction: column; gap: 20rpx; }
+.info-item { display: flex; }
+.info-label { width: 160rpx; font-size: 26rpx; color: var(--text-muted); flex-shrink: 0; }
+.info-value { flex: 1; font-size: 26rpx; color: var(--text-primary); }
+
+.detail-content { padding: 8rpx 0; }
+.detail-title { display: block; font-size: 30rpx; font-weight: 700; margin-bottom: 16rpx; }
+.detail-text { font-size: 28rpx; color: var(--text-secondary); line-height: 1.8; white-space: pre-wrap; }
+
+.bottom-bar {
+  position: fixed; left: 0; right: 0; bottom: 0;
+  display: flex; gap: 16rpx; padding: 20rpx 32rpx;
+  background: #FFFFFF; box-shadow: 0 -4rpx 16rpx rgba(0,0,0,0.05);
+}

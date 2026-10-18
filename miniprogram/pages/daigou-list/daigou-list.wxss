@@ -1,0 +1,10 @@
+.page-daigou-list { min-height: 100vh; background: var(--bg); }
+.sort-bar {
+  display: flex; padding: 20rpx 32rpx; background: #FFFFFF;
+  border-bottom: 2rpx solid var(--border-light); gap: 32rpx; margin-bottom: 16rpx;
+}
+.sort-item { font-size: 26rpx; color: var(--text-secondary); }
+.sort-item.active { color: var(--primary); font-weight: 700; }
+.daigou-list { display: flex; flex-direction: column; gap: 20rpx; padding-top: 16rpx; }
+.load-more { text-align: center; padding: 32rpx; font-size: 24rpx; }
+.empty-icon { font-size: 80rpx; margin-bottom: 20rpx; display: block; }

@@ -1,0 +1,5 @@
+/* wxss */
+.page-agreement { min-height: 100vh; background: var(--bg); padding: 24rpx 32rpx; }
+.agree-title { display: block; font-size: 34rpx; font-weight: 800; margin-bottom: 16rpx; }
+.agree-section-title { display: block; font-size: 28rpx; font-weight: 700; margin-top: 24rpx; margin-bottom: 12rpx; }
+.agree-text { display: block; font-size: 26rpx; color: var(--text-secondary); line-height: 1.8; white-space: pre-wrap; }

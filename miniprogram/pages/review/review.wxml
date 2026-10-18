@@ -1,0 +1,29 @@
+<!-- wxml -->
+<view class="page-review">
+  <!-- 评价模式 -->
+  <view wx:if="{{mode === 'write'}}">
+    <view class="card" style="padding:32rpx;">
+      <text class="review-title">评价交易</text>
+      <view class="star-row">
+        <text class="star {{rating >= item ? 'active' : ''}}" wx:for="{{[1,2,3,4,5]}}" wx:key="*this" data-val="{{item}}" bindtap="setRating">★</text>
+      </view>
+      <textarea class="review-textarea" placeholder="说说这次交易的体验..." value="{{content}}" bindinput="onInput" maxlength="200" auto-height />
+      <button class="btn btn-primary btn-block" style="margin-top:24rpx;" bindtap="submitReview">提交评价</button>
+    </view>
+  </view>
+
+  <!-- 评价列表模式 -->
+  <view wx:elif="{{mode === 'list'}}">
+    <view class="review-list">
+      <view class="review-card card" wx:for="{{reviews}}" wx:key="_id" style="padding:24rpx;">
+        <view class="review-header">
+          <text class="review-name">{{item.reviewerName}}</text>
+          <text class="review-stars text-accent">{{'★'.repeat(item.rating)}}{{'☆'.repeat(5 - item.rating)}}</text>
+        </view>
+        <text class="review-content-text">{{item.content}}</text>
+        <text class="review-time text-muted">{{item.timeAgo}}</text>
+      </view>
+    </view>
+    <view class="empty-state" wx:if="{{reviews.length === 0}}"><text class="empty-title">暂无评价</text></view>
+  </view>
+</view>

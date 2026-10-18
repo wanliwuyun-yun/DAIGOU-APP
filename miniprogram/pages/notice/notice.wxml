@@ -1,0 +1,19 @@
+<!-- wxml -->
+<view class="page-notice">
+  <view class="notice-card card" style="padding:32rpx;">
+    <text class="notice-title">代购须知</text>
+    <view class="divider"></view>
+    <text class="notice-section-title">一、税费说明</text>
+    <text class="notice-text">跨境代购商品可能涉及关税、增值税等税费。具体税率因商品品类和地区而异，下单前请与代购者确认税费承担方式。</text>
+    <text class="notice-section-title">二、运费规则</text>
+    <text class="notice-text">运费根据商品重量、体积、目的地计算。部分代购者提供包邮服务，具体以商品页面标注为准。国际运费可能在运输过程中产生额外费用。</text>
+    <text class="notice-section-title">三、退换规则</text>
+    <text class="notice-text">代购商品一般不支持无理由退换。如商品存在质量问题、与描述严重不符等，请保留证据并与代购者协商。平台仅提供撮合服务，不直接介入交易纠纷。</text>
+    <text class="notice-section-title">四、违禁品禁止代购清单</text>
+    <view class="prohibited-list">
+      <text class="prohibited-item" wx:for="{{prohibitedItems}}" wx:key="*this">🚫 {{item}}</text>
+    </view>
+    <text class="notice-section-title">五、免责声明</text>
+    <text class="notice-text">本平台仅为代购供需双方提供信息撮合服务，不承担交易担保责任。请双方在交易前充分沟通，线下自行完成交易及物流安排。</text>
+  </view>
+</view>

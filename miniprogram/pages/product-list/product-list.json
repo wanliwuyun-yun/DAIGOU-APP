@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "product-card": "/components/product-card/product-card",
+    "region-nav": "/components/region-nav/region-nav"
+  },
+  "navigationBarTitleText": "可代购商品",
+  "enablePullDownRefresh": true
+}

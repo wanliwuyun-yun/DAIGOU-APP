@@ -1,0 +1,46 @@
+<view class="page-daigou-apply">
+  <view class="container">
+    <view class="intro-card card" style="padding:32rpx;">
+      <text class="intro-title">成为代购达人</text>
+      <text class="intro-desc">开通代购身份后，您可以发布可代购商品、接单代购、管理订单、收取服务费。</text>
+    </view>
+
+    <view class="form-group">
+      <text class="form-label">真实姓名 <text class="required">*</text></text>
+      <input class="form-input" placeholder="请输入真实姓名" value="{{form.realName}}" bindinput="onInput" data-field="realName" />
+    </view>
+
+    <view class="form-group">
+      <text class="form-label">微信号</text>
+      <input class="form-input" placeholder="方便买家联系您" value="{{form.wechat}}" bindinput="onInput" data-field="wechat" />
+    </view>
+
+    <view class="form-group">
+      <text class="form-label">可代购地区 <text class="required">*</text></text>
+      <view class="region-select">
+        <view class="region-group" wx:for="{{regions}}" wx:key="id">
+          <text class="region-group-name">{{item.icon}} {{item.name}}</text>
+          <view class="region-options">
+            <text class="region-opt {{form.regions.includes(region.id) ? 'active' : ''}}" wx:for="{{item.children}}" wx:for-item="region" wx:key="id" data-id="{{region.id}}" bindtap="toggleRegion">{{region.flag}} {{region.name}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <view class="form-group">
+      <text class="form-label">主营品类 <text class="required">*</text></text>
+      <view class="cat-select">
+        <text class="cat-opt {{form.categories.includes(item.id) ? 'active' : ''}}" wx:for="{{categories}}" wx:key="id" data-id="{{item.id}}" bindtap="toggleCategory">{{item.icon}} {{item.name}}</text>
+      </view>
+    </view>
+
+    <view class="form-group">
+      <text class="form-label">服务简介 <text class="required">*</text></text>
+      <textarea class="form-textarea" placeholder="介绍您的代购经验、服务优势等" value="{{form.description}}" bindinput="onInput" data-field="description" maxlength="500" auto-height />
+    </view>
+
+    <view class="submit-area safe-bottom">
+      <button class="btn btn-primary btn-block btn-lg" bindtap="submit" loading="{{submitting}}">提交申请</button>
+    </view>
+  </view>
+</view>

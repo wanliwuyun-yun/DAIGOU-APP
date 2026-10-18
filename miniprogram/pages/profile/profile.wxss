@@ -1,0 +1,86 @@
+.page-profile { min-height: 100vh; background: var(--bg); }
+
+.login-card {
+  margin: 32rpx;
+  padding: 60rpx 32rpx;
+  background: linear-gradient(135deg, var(--secondary), var(--secondary-light));
+  border-radius: var(--radius-xl);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12rpx;
+}
+
+.login-avatar {
+  width: 140rpx;
+  height: 140rpx;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 8rpx;
+}
+
+.login-avatar-icon { font-size: 64rpx; }
+.login-text { font-size: 32rpx; font-weight: 700; color: #FFFFFF; }
+.login-desc { font-size: 24rpx; color: rgba(255,255,255,0.6); }
+
+.user-card {
+  margin: 32rpx;
+  padding: 40rpx 32rpx;
+  background: linear-gradient(135deg, var(--secondary), var(--secondary-light));
+  border-radius: var(--radius-xl);
+}
+
+.user-info-row {
+  display: flex;
+  align-items: center;
+  gap: 24rpx;
+}
+
+.user-info-text { flex: 1; }
+.user-name { display: block; font-size: 34rpx; font-weight: 800; color: #FFFFFF; margin-bottom: 8rpx; }
+
+.user-role-row { display: flex; gap: 12rpx; }
+.user-phone { margin-top: 20rpx; padding-top: 20rpx; border-top: 2rpx solid rgba(255,255,255,0.1); }
+.user-arrow { font-size: 40rpx; padding: 8rpx; }
+
+.daigou-entry {
+  margin: 0 32rpx 20rpx;
+  padding: 28rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.daigou-entry-left { display: flex; align-items: center; gap: 20rpx; flex: 1; }
+.daigou-entry-icon { font-size: 40rpx; }
+.daigou-entry-info { flex: 1; }
+.daigou-entry-title { display: block; font-size: 28rpx; font-weight: 700; color: var(--text-primary); margin-bottom: 4rpx; }
+.daigou-entry-desc { display: block; font-size: 22rpx; color: var(--text-muted); }
+.daigou-entry-arrow { font-size: 36rpx; color: var(--text-muted); }
+
+.menu-section {
+  margin: 24rpx 32rpx;
+  background: var(--card);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  padding: 32rpx 28rpx;
+  border-bottom: 2rpx solid var(--border-light);
+  transition: background 0.2s;
+}
+
+.menu-item:last-child { border-bottom: none; }
+.menu-item:active { background: var(--bg); }
+.menu-icon { font-size: 36rpx; margin-right: 20rpx; }
+.menu-text { flex: 1; font-size: 28rpx; color: var(--text-primary); }
+.menu-arrow { font-size: 32rpx; color: var(--text-muted); }
+
+.logout-area { margin: 40rpx 32rpx; }

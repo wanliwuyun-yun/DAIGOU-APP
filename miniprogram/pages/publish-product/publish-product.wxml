@@ -1,0 +1,96 @@
+<!-- 代购者发布商品 -->
+<view class="page-publish-product">
+  <view class="form container">
+    <!-- 代购地区 -->
+    <view class="form-group">
+      <text class="form-label">代购地区 <text class="required">*</text></text>
+      <picker mode="multiSelector" range="{{regionPicker}}" range-key="name" value="{{regionPickerValue}}" bindchange="onRegionPick" bindcolumnchange="onRegionColumnChange">
+        <view class="form-picker {{form.region ? '' : 'placeholder'}}">
+          {{form.regionName || '请选择代购地区'}}
+        </view>
+      </picker>
+    </view>
+
+    <!-- 商品分类 -->
+    <view class="form-group">
+      <text class="form-label">商品分类 <text class="required">*</text></text>
+      <view class="category-picker">
+        <text class="cat-pick-item {{form.category === item.id ? 'active' : ''}}" wx:for="{{categories}}" wx:key="id" data-id="{{item.id}}" data-name="{{item.name}}" bindtap="onCategoryPick">
+          {{item.icon}} {{item.name}}
+        </text>
+      </view>
+    </view>
+
+    <!-- 商品名称 -->
+    <view class="form-group">
+      <text class="form-label">商品名称 <text class="required">*</text></text>
+      <input class="form-input" placeholder="请输入商品名称" value="{{form.name}}" bindinput="onInput" data-field="name" maxlength="100" />
+    </view>
+
+    <!-- 上传图片 -->
+    <view class="form-group">
+      <text class="form-label">商品图片 <text class="required">*</text></text>
+      <view class="image-upload">
+        <view class="image-item" wx:for="{{form.images}}" wx:key="*this">
+          <image class="upload-img" src="{{item}}" mode="aspectFill" />
+          <view class="image-remove" data-index="{{index}}" bindtap="removeImage">✕</view>
+        </view>
+        <view class="image-add" bindtap="addImage" wx:if="{{form.images.length < 9}}">
+          <text class="add-icon">+</text>
+          <text class="add-text">添加图片</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 售价 -->
+    <view class="form-group">
+      <text class="form-label">售价（元）<text class="required">*</text></text>
+      <input class="form-input" type="digit" placeholder="请输入商品售价" value="{{form.price}}" bindinput="onInput" data-field="price" />
+    </view>
+
+    <!-- 代购服务费 -->
+    <view class="form-group">
+      <text class="form-label">代购服务费（元）</text>
+      <input class="form-input" type="digit" placeholder="不填则表示免服务费" value="{{form.serviceFee}}" bindinput="onInput" data-field="serviceFee" />
+    </view>
+
+    <!-- 运费说明 -->
+    <view class="form-group">
+      <text class="form-label">运费说明</text>
+      <input class="form-input" placeholder="如：运费另算、包邮等" value="{{form.shippingNote}}" bindinput="onInput" data-field="shippingNote" />
+    </view>
+
+    <!-- 现货/预售 -->
+    <view class="form-group">
+      <text class="form-label">商品类型</text>
+      <view class="type-picker">
+        <text class="type-item {{form.stockType === '现货' ? 'active' : ''}}" data-type="现货" bindtap="onTypePick">现货</text>
+        <text class="type-item {{form.stockType === '预售' ? 'active' : ''}}" data-type="预售" bindtap="onTypePick">预售</text>
+      </view>
+    </view>
+
+    <!-- 限购数量 -->
+    <view class="form-group">
+      <text class="form-label">限购数量</text>
+      <input class="form-input" type="number" placeholder="不限则填0" value="{{form.limitCount}}" bindinput="onInput" data-field="limitCount" />
+    </view>
+
+    <!-- 发货时效 -->
+    <view class="form-group">
+      <text class="form-label">发货时效</text>
+      <input class="form-input" placeholder="如：下单后3-5天发货" value="{{form.deliveryTime}}" bindinput="onInput" data-field="deliveryTime" />
+    </view>
+
+    <!-- 商品详情 -->
+    <view class="form-group">
+      <text class="form-label">商品详情</text>
+      <textarea class="form-textarea" placeholder="详细描述商品信息，如品牌、规格、购买渠道等" value="{{form.detail}}" bindinput="onInput" data-field="detail" maxlength="2000" auto-height />
+      <text class="form-count">{{form.detail.length}}/2000</text>
+    </view>
+
+    <!-- 提交 -->
+    <view class="submit-area safe-bottom">
+      <button class="btn btn-primary btn-block btn-lg" bindtap="submitForm" loading="{{submitting}}">上架商品</button>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,142 @@
+.page-category {
+  min-height: 100vh;
+  background: var(--bg);
+}
+
+.search-bar-wrap {
+  padding: 20rpx 32rpx;
+  background: #FFFFFF;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  gap: 16rpx;
+  height: 76rpx;
+  background: var(--bg);
+  border-radius: 38rpx;
+  padding: 0 28rpx;
+}
+
+.search-icon { font-size: 28rpx; flex-shrink: 0; }
+
+.search-input {
+  flex: 1;
+  font-size: 28rpx;
+  height: 76rpx;
+  color: var(--text-primary);
+}
+
+.search-clear {
+  font-size: 28rpx;
+  color: var(--text-muted);
+  padding: 8rpx;
+}
+
+.search-tabs {
+  display: flex;
+  padding: 0 32rpx;
+  background: #FFFFFF;
+  border-bottom: 2rpx solid var(--border-light);
+}
+
+.search-tab {
+  flex: 1;
+  text-align: center;
+  padding: 24rpx 0;
+  font-size: 28rpx;
+  color: var(--text-secondary);
+  position: relative;
+  font-weight: 500;
+}
+
+.search-tab.active {
+  color: var(--primary);
+  font-weight: 700;
+}
+
+.search-tab.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 48rpx;
+  height: 6rpx;
+  border-radius: 3rpx;
+  background: var(--primary);
+}
+
+.search-list {
+  padding: 24rpx 32rpx;
+  display: flex;
+  flex-direction: column;
+  gap: 24rpx;
+}
+
+/* 地区分组 */
+.region-section {
+  padding: 24rpx 32rpx 0;
+}
+
+.region-section-header {
+  display: flex;
+  align-items: center;
+  gap: 12rpx;
+  padding: 12rpx 0 12rpx 20rpx;
+  margin-bottom: 16rpx;
+}
+
+.region-section-icon { font-size: 32rpx; }
+
+.region-section-name {
+  font-size: 30rpx;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.region-section-count {
+  font-size: 22rpx;
+  color: var(--text-muted);
+  margin-left: auto;
+}
+
+.region-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16rpx;
+  padding-bottom: 8rpx;
+}
+
+.region-item {
+  display: flex;
+  align-items: center;
+  gap: 20rpx;
+  padding: 24rpx;
+}
+
+.region-flag { font-size: 40rpx; }
+
+.region-info { flex: 1; }
+
+.region-name {
+  display: block;
+  font-size: 28rpx;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 4rpx;
+}
+
+.region-stats {
+  display: block;
+  font-size: 22rpx;
+  color: var(--text-muted);
+}
+
+.region-arrow {
+  font-size: 36rpx;
+  color: var(--text-muted);
+}

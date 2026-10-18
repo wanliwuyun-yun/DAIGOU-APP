@@ -1,0 +1,22 @@
+<view class="page-daigou-center">
+  <view class="stats-overview card" style="padding:32rpx;">
+    <text class="overview-title">代购数据中心</text>
+    <view class="stats-grid">
+      <view class="stats-cell"><text class="stats-num">{{info.orderCount || 0}}</text><text class="stats-label">总成交</text></view>
+      <view class="stats-cell"><text class="stats-num">{{info.rating || '5.0'}}</text><text class="stats-label">评分</text></view>
+      <view class="stats-cell"><text class="stats-num">{{info.reviewCount || 0}}</text><text class="stats-label">评价</text></view>
+      <view class="stats-cell"><text class="stats-num">{{productCount}}</text><text class="stats-label">在售商品</text></view>
+    </view>
+  </view>
+
+  <view class="menu-section">
+    <view class="menu-item" bindtap="goMyProducts"><text class="menu-icon">🛍️</text><text class="menu-text">我的商品</text><text class="menu-arrow">›</text></view>
+    <view class="menu-item" bindtap="goPublishProduct"><text class="menu-icon">➕</text><text class="menu-text">发布新商品</text><text class="menu-arrow">›</text></view>
+    <view class="menu-item" bindtap="goMyOrders" data-role="daigou"><text class="menu-icon">📦</text><text class="menu-text">我的接单</text><text class="menu-arrow">›</text></view>
+    <view class="menu-item" bindtap="goMyReviews"><text class="menu-icon">⭐</text><text class="menu-text">评价管理</text><text class="menu-arrow">›</text></view>
+  </view>
+
+  <view class="menu-section">
+    <view class="menu-item" bindtap="goEditInfo"><text class="menu-icon">✏️</text><text class="menu-text">修改服务信息</text><text class="menu-arrow">›</text></view>
+  </view>
+</view>

@@ -1,0 +1,7 @@
+/* wxss */
+.page-my-demands { min-height: 100vh; background: var(--bg); }
+.tab-bar { display: flex; padding: 20rpx 32rpx; background: #FFFFFF; border-bottom: 2rpx solid var(--border-light); gap: 12rpx; }
+.tab-item { padding: 12rpx 24rpx; border-radius: 32rpx; font-size: 26rpx; color: var(--text-secondary); background: var(--bg); }
+.tab-item.active { background: var(--primary); color: #FFF; font-weight: 700; }
+.demand-list { display: flex; flex-direction: column; gap: 20rpx; padding-top: 16rpx; }
+.empty-icon { font-size: 80rpx; margin-bottom: 20rpx; display: block; }

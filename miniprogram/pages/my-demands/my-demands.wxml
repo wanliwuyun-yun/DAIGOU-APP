@@ -1,0 +1,13 @@
+<!-- wxml -->
+<view class="page-my-demands">
+  <view class="tab-bar">
+    <text class="tab-item {{tab==='all'?'active':''}}" data-tab="all" bindtap="switchTab">全部</text>
+    <text class="tab-item {{tab==='waiting'?'active':''}}" data-tab="waiting" bindtap="switchTab">待接单</text>
+    <text class="tab-item {{tab==='accepted'?'active':''}}" data-tab="accepted" bindtap="switchTab">已接单</text>
+    <text class="tab-item {{tab==='completed'?'active':''}}" data-tab="completed" bindtap="switchTab">已完成</text>
+  </view>
+  <view class="demand-list container">
+    <demand-card wx:for="{{list}}" wx:key="_id" item="{{item}}" />
+  </view>
+  <view class="empty-state" wx:if="{{list.length===0}}"><text class="empty-icon">📋</text><text class="empty-title">暂无需求</text></view>
+</view>

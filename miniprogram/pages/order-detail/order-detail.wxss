@@ -1,0 +1,28 @@
+.page-order-detail { min-height: 100vh; background: var(--bg); padding-bottom: 160rpx; }
+
+.status-header { padding: 48rpx 32rpx; text-align: center; }
+.status-text { display: block; font-size: 36rpx; font-weight: 800; margin-bottom: 8rpx; }
+.status-desc { display: block; font-size: 24rpx; color: var(--text-muted); }
+
+.detail-body { display: flex; flex-direction: column; gap: 20rpx; padding-top: 24rpx; }
+.card-title { display: block; font-size: 28rpx; font-weight: 700; margin-bottom: 20rpx; }
+
+.order-body { display: flex; gap: 20rpx; }
+.order-img { width: 120rpx; height: 120rpx; border-radius: var(--radius-sm); background: var(--border-light); flex-shrink: 0; }
+.order-info { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 6rpx; }
+.order-name { font-size: 28rpx; font-weight: 600; }
+.order-region, .order-qty { font-size: 22rpx; }
+
+.fee-row { display: flex; justify-content: space-between; align-items: center; padding: 8rpx 0; }
+.fee-label { font-size: 26rpx; color: var(--text-secondary); }
+.fee-value { font-size: 26rpx; color: var(--text-primary); font-weight: 600; }
+
+.party-row { display: flex; justify-content: space-between; padding: 10rpx 0; }
+.party-label { font-size: 26rpx; }
+.party-name { font-size: 26rpx; font-weight: 600; }
+
+.bottom-bar {
+  position: fixed; left: 0; right: 0; bottom: 0;
+  display: flex; gap: 16rpx; padding: 20rpx 32rpx;
+  background: #FFFFFF; box-shadow: 0 -4rpx 16rpx rgba(0,0,0,0.05);
+}

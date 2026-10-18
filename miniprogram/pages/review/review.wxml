@@ -18,7 +18,7 @@
       <view class="review-card card" wx:for="{{reviews}}" wx:key="_id" style="padding:24rpx;">
         <view class="review-header">
           <text class="review-name">{{item.reviewerName}}</text>
-          <text class="review-stars text-accent">{{'★'.repeat(item.rating)}}{{'☆'.repeat(5 - item.rating)}}</text>
+          <text class="review-stars text-accent">{{item.starText}}</text>
         </view>
         <text class="review-content-text">{{item.content}}</text>
         <text class="review-time text-muted">{{item.timeAgo}}</text>

@@ -34,7 +34,26 @@ Page({
     } catch (err) { showToast('评价失败') }
   },
   async loadReviews() {
-    const { data } = await db.collection('reviews').orderBy('createdAt', 'desc').limit(50).get()
-    this.setData({ reviews: data.map(r => ({ ...r, timeAgo: timeAgo(r.createdAt) })) })
+    try {
+      const { data } = await db.collection('reviews').orderBy('createdAt', 'desc').limit(50).get()
+      
+      // 关键修改：处理数据时生成 starText
+      const processedReviews = data.map(r => {
+        // 确保 rating 是有效数字（0-5）
+        const rating = Math.max(0, Math.min(5, parseInt(r.rating) || 0))
+        
+        return {
+          ...r,
+          timeAgo: timeAgo(r.createdAt),
+          starText: '★'.repeat(rating) + '☆'.repeat(5 - rating)  // 生成星星字符串
+        }
+      })
+      
+      this.setData({ reviews: processedReviews })
+    } catch (err) {
+      console.error('加载评价失败', err)
+      showToast('加载失败')
+    }
   }
 })
+  
